@@ -1,12 +1,36 @@
-# React + Vite
+#🏓 Table Tennis Player Stats Visualizations
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+###Built with React + Vite + + AntDesign + D3.js
 
-Currently, two official plugins are available:
+###📌 Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project visualizes statistics of top 15 table tennis players using different interactive visual components. 
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+###🎯 Visualization Goals
+- Track a player's world ranking over time
+
+- Compare different kinds skill attributes across players
+
+- View historical win/loss records year-by-year
+
+- Switch between different players for comparison
+
+###🛠️ Visualization Components & Interactions
+Component	Description
+Line Chart	Shows how a player's world ranking changed monthly.
+Radar Chart	Displays the player's skill attributes (Serving, Speed, Power, etc.).
+Stacked Bar Chart	Visualizes year-by-year win/loss counts (2017–2020) with tooltips & legends.
+Player Selector	Allows users to switch between players; all charts update accordingly.
+
+
+###⚙️Setup & Run
+You can install and test code
+```angular2html
+npm install
+npm dev run
+# open the link it pops(should be http://localhost:5173/)
+```
+Or directly open /dist/index.html (with a live server)
+
+Or visit GitHub: 
