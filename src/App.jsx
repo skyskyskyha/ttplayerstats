@@ -15,9 +15,9 @@ const App = () => {
     // Load ranking, abilities, wins
     useEffect(() => {
         Promise.all([
-            d3.csv('/data/players_rankings.csv'),
-            d3.csv('/data/players_ability.csv'),
-            d3.csv('/data/players_wins.csv')
+            d3.csv('./data/players_rankings.csv'),
+            d3.csv('./data/players_ability.csv'),
+            d3.csv('./data/players_wins.csv')
         ]).then(([rankingData, abilityData, winsCSV]) => {
             setPlayers(rankingData);
             setAbilities(abilityData);
@@ -30,8 +30,8 @@ const App = () => {
             if (winRow) {
                 const formatted = ['2017', '2018', '2019', '2020'].map(year => ({
                     year,
-                    win: +winRow[`${year}_win`],
-                    loss: +winRow[`${year}_loss`]
+                    wins: +winRow[`${year}_win`],
+                    losses: +winRow[`${year}_loss`]
                 }));
                 setWinsData(formatted);
             }
@@ -67,7 +67,7 @@ const App = () => {
     useEffect(() => {
         if (!selectedPlayer) return;
 
-        d3.csv('/data/players_wins.csv').then((data) => {
+        d3.csv('./data/players_wins.csv').then((data) => {
             const playerRow = data.find(d => d.Name === selectedPlayer);
             if (!playerRow) {
                 setWinsData([]);

@@ -4,7 +4,6 @@ import * as d3 from 'd3';
 const WinsBarChart = ({ data }) => {
     const ref = useRef();
     const tooltipRef = useRef();
-
     useEffect(() => {
         if (!data || data.length === 0) return;
 
