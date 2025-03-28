@@ -33,4 +33,4 @@ npm dev run
 ```
 Or directly open /dist/index.html (with a live server)
 
-Or visit GitHub: 
+Or visit GitHub: https://skyskyskyha.github.io/ttplayerstats/
