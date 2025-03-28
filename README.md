@@ -1,13 +1,13 @@
-#🏓 Table Tennis Player Stats Visualizations
+# 🏓 Table Tennis Player Stats Visualizations
 
-###Built with React + Vite + + AntDesign + D3.js
+### Built with React + Vite + + AntDesign + D3.js
 
-###📌 Project Overview
+### 📌 Project Overview
 
 This project visualizes statistics of top 15 table tennis players using different interactive visual components. 
 
 
-###🎯 Visualization Goals
+### 🎯 Visualization Goals
 - Track a player's world ranking over time
 
 - Compare different kinds skill attributes across players
@@ -16,7 +16,7 @@ This project visualizes statistics of top 15 table tennis players using differen
 
 - Switch between different players for comparison
 
-###🛠️ Visualization Components & Interactions
+### 🛠️ Visualization Components & Interactions
 Component	Description
 Line Chart	Shows how a player's world ranking changed monthly.
 Radar Chart	Displays the player's skill attributes (Serving, Speed, Power, etc.).
@@ -24,7 +24,7 @@ Stacked Bar Chart	Visualizes year-by-year win/loss counts (2017–2020) with too
 Player Selector	Allows users to switch between players; all charts update accordingly.
 
 
-###⚙️Setup & Run
+### ⚙️Setup & Run
 You can install and test code
 ```angular2html
 npm install
@@ -33,4 +33,4 @@ npm dev run
 ```
 Or directly open /dist/index.html (with a live server)
 
-Or visit GitHub: 
+Or visit GitHub: https://skyskyskyha.github.io/ttplayerstats/
