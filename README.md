@@ -16,6 +16,8 @@ This project visualizes statistics of top 15 table tennis players using differen
 
 - Switch between different players for comparison
 
+- Compare 2-5 players' stats in a single window
+
 ### 🛠️ Visualization Components & Interactions
 Component	Description
 Line Chart	Shows how a player's world ranking changed monthly.
@@ -26,7 +28,7 @@ Player Selector	Allows users to switch between players; all charts update accord
 
 ### ⚙️Setup & Run
 You can install and test code
-```angular2html
+```
 npm install
 npm dev run
 # open the link it pops(should be http://localhost:5173/)

@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
+import useChartSize from './useChartSize';
 
-const LineChart = ({ data, width = 800, height = 500 }) => {
+const LineChart = ({ data }) => {
     const svgRef = useRef();
+    const [containerRef, { width, height }] = useChartSize();
 
     useEffect(() => {
-        if (!data.length) return;
-
         const parseDate = d3.timeParse('%Y-%m-%d');
         const formattedData = data.map((d) => ({
             date: parseDate(d.Date),
@@ -42,7 +42,6 @@ const LineChart = ({ data, width = 800, height = 500 }) => {
             .append('g')
             .attr('transform', `translate(${margin.left},${margin.top})`);
 
-        // 绘制动画效果的折线
         const path = mainGroup.append('path')
             .datum(formattedData)
             .attr('fill', 'none')
@@ -60,7 +59,6 @@ const LineChart = ({ data, width = 800, height = 500 }) => {
             .ease(d3.easeLinear)
             .attr('stroke-dashoffset', 0);
 
-        // 添加数据点和交互
         const dots = mainGroup.selectAll('circle')
             .data(formattedData)
             .enter()
@@ -75,7 +73,6 @@ const LineChart = ({ data, width = 800, height = 500 }) => {
             .delay((_, i) => (i / formattedData.length) * 2000)
             .attr('opacity', 1);
 
-        // 创建tooltip div
         const tooltip = d3.select('body').append('div')
             .attr('class', 'tooltip')
             .style('position', 'absolute')
@@ -83,7 +80,7 @@ const LineChart = ({ data, width = 800, height = 500 }) => {
             .style('border', '1px solid #ccc')
             .style('padding', '5px 10px')
             .style('border-radius', '4px')
-            .style('font-size', '12px')
+            .style('font-size', '16px')
             .style('pointer-events', 'none')
             .style('opacity', 0);
 
@@ -112,10 +109,9 @@ const LineChart = ({ data, width = 800, height = 500 }) => {
         mainGroup.append('g')
             .call(d3.axisLeft(yScale).ticks(20));
 
-
         svg.append('text')
             .attr('x', width / 2)
-            .attr('y', height )
+            .attr('y', height)
             .attr('text-anchor', 'middle')
             .style('font-size', '20px')
             .style('fill', 'white')
@@ -130,14 +126,16 @@ const LineChart = ({ data, width = 800, height = 500 }) => {
             .style('fill', 'white')
             .text('Rank');
 
-        // 清除tooltip
         return () => {
             tooltip.remove();
         };
+    }, [data, width, height]);
 
-    }, [data, height, width]);
-
-    return <svg ref={svgRef}></svg>;
+    return (
+        <div ref={containerRef} style={{ width: '100%' }}>
+            <svg ref={svgRef}></svg>
+        </div>
+    );
 };
 
 export default LineChart;

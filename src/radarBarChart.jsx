@@ -1,9 +1,11 @@
 import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
+import useChartSize from './useChartSize';
 
 const RadarBarChart = ({ data }) => {
     const ref = useRef();
-
+    if (!data || data.length === 0) 
+        data = [0,0,0,0,0,0];
     useEffect(() => {
         const labels = ['Serving', 'Defense', 'Speed', 'Experience', 'Power', 'Skill'];
         const radius = 160;
@@ -79,7 +81,7 @@ const RadarBarChart = ({ data }) => {
 
     }, [data]);
 
-    return <svg ref={ref} />;
+    return <svg ref={ref}></svg>
 };
 
 export default RadarBarChart;
